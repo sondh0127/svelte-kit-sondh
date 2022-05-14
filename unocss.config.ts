@@ -47,6 +47,7 @@ export function createConfig({ strict = true, dev = true } = {}) {
           carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default as any),
           'ant-design': () => import('@iconify-json/ant-design/icons.json').then(i => i.default as any),
           'twemoji': () => import('@iconify-json/twemoji/icons.json').then(i => i.default as any),
+          'logos': () => import('@iconify-json/logos/icons.json').then(i => i.default as any),
         },
         extraProperties: {
           'display': 'inline-block',

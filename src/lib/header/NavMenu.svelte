@@ -1,6 +1,8 @@
 <script lang="ts">
   import { page } from '$app/stores'
 
+  export let mini = false
+
   const items = [
     {
       icon: 'i-ant-design:home-filled',
@@ -46,9 +48,11 @@
         href={item.path}
       >
         <div class="{item.icon} w-30px h-30px text-base" />
-        <div class="text-base font-bold">
-          {item.label}
-        </div>
+        {#if !mini}
+          <div class="text-base font-bold">
+            {item.label}
+          </div>
+        {/if}
       </a>
     </li>
   {/each}

@@ -10,30 +10,38 @@
 >
   <Header />
 
-  <main class="flex-grow">
-    <div
-      class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px"
-    >
-      <h1
-        class="bg-clip-text text-transparent text-6xl font-bold bg-gradient-to-br from-primary/70 via-primary to-white"
-      >
-        Son Portfolio
-      </h1>
-
-      <div class="i-twemoji:pushpin w-[30px] h-[30px] absolute right-0 top-0" />
-    </div>
-    <h1>
-      <div class="welcome">
+  <main class="flex-grow flex flex-col gap-16px">
+    <div>
+      <div class="flex justify-center">
         <picture>
           <source srcset="svelte-welcome.webp" type="image/webp" />
-          <img src="svelte-welcome.png" alt="Welcome" />
+          <img
+            class="h-100px object-fill"
+            src="svelte-welcome.png"
+            alt="Welcome"
+          />
         </picture>
       </div>
-    </h1>
-    <slot />
+      <div
+        class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px"
+      >
+        <h1
+          class="bg-clip-text text-transparent text-6xl font-bold bg-gradient-to-br from-primary/70 via-primary to-white"
+        >
+          Son Portfolio
+        </h1>
+
+        <div
+          class="i-twemoji:pushpin w-[30px] h-[30px] absolute right-0 top-0"
+        />
+      </div>
+    </div>
+    <div class="p-16px">
+      <slot />
+    </div>
   </main>
 
-  <footer>
+  <footer class="hidden xl:block">
     <Counter />
   </footer>
 </div>
