@@ -1,7 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@fontsource/fira-mono': ^4.5.0
+  '@iconify-json/ant-design': ^1.1.1
+  '@iconify-json/carbon': ^1.1.4
+  '@iconify-json/twemoji': ^1.1.4
   '@lukeed/uuid': ^2.0.0
   '@playwright/test': ^1.21.0
   '@sveltejs/adapter-auto': next
@@ -9,6 +11,7 @@ specifiers:
   '@types/cookie': ^0.4.1
   '@typescript-eslint/eslint-plugin': ^5.10.1
   '@typescript-eslint/parser': ^5.10.1
+  '@unocss/reset': ^0.33.4
   cookie: ^0.4.1
   eslint: ^8.12.0
   eslint-plugin-svelte3: ^4.0.0
@@ -20,11 +23,14 @@ specifiers:
   unocss: ^0.33.4
 
 dependencies:
-  '@fontsource/fira-mono': 4.5.8
   '@lukeed/uuid': 2.0.0
+  '@unocss/reset': 0.33.4
   cookie: 0.4.2
 
 devDependencies:
+  '@iconify-json/ant-design': 1.1.1
+  '@iconify-json/carbon': 1.1.4
+  '@iconify-json/twemoji': 1.1.4
   '@playwright/test': 1.22.0
   '@sveltejs/adapter-auto': 1.0.0-next.42
   '@sveltejs/kit': 1.0.0-next.330_svelte@3.48.0
@@ -70,10 +76,6 @@ packages:
       - supports-color
     dev: true
 
-  /@fontsource/fira-mono/4.5.8:
-    resolution: {integrity: sha512-sFuSPB/Km8B1fy3CH0NqO5Nb4GmVMzp3XFaw6MwK293xhm3OnB68QJawwTTjLewcrS78wOTAhTUB058qxurJoQ==}
-    dev: false
-
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
     engines: {node: '>=10.10.0'}
@@ -91,6 +93,24 @@ packages:
 
   /@iarna/toml/2.2.5:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
+    dev: true
+
+  /@iconify-json/ant-design/1.1.1:
+    resolution: {integrity: sha512-aziSNNmMGe/BpDVn+LCi7BP1hBJq39kn0j9yk4ZHqKGytiF9JRF/0ziKjxvo0BvYFuPAjwMVJpFzhG0KMZ/DGw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/carbon/1.1.4:
+    resolution: {integrity: sha512-I2Y80wAR+Z3Ut68xiwBfRtw4Lwj7IqeOkCfEnWFC9/dA2ixIJEkCxy8HyNLO3z9RiSF7HZtgI8qGHhyNA2b6EQ==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/twemoji/1.1.4:
+    resolution: {integrity: sha512-8kkpuloIx3oWM8CemCq4kRpocI4DTBMqitb333EYjtUdAxQTyzx9ftpVrIJxJ+0p9KGXuK0M8ikWDlYkxCPszw==}
+    dependencies:
+      '@iconify/types': 1.1.0
     dev: true
 
   /@iconify/types/1.1.0:
@@ -470,7 +490,6 @@ packages:
 
   /@unocss/reset/0.33.4:
     resolution: {integrity: sha512-5kqDu1WcZk9i0TPgLw6Un6BsZUR2jEDGIxAntgpmVTWhc5IUBTrORWw+9NMZAY1pea/WXTEWHxGQpQUaUQ7Sdw==}
-    dev: true
 
   /@unocss/scope/0.33.4:
     resolution: {integrity: sha512-/81YmiMo4ae//lMR1eMKCX6FcU2rRCEEWc0gqhpoFicKaAkh1/F+upD7F3V5QBV2w+VIl6NXVx9LuYhf+bMQ6Q==}
@@ -1184,8 +1203,8 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob/7.2.0:
-    resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
+  /glob/7.2.2:
+    resolution: {integrity: sha512-NzDgHDiJwKYByLrL5lONmQFpK/2G78SMMfo+E9CuGlX4IkvfKDsiQSNPwAYxEy+e6p7ZQ3uslSLlwlJcqezBmQ==}
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -1644,18 +1663,18 @@ packages:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
     hasBin: true
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.2
     dev: true
 
   /rimraf/3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.2
     dev: true
 
-  /rollup/2.72.1:
-    resolution: {integrity: sha512-NTc5UGy/NWFGpSqF1lFY8z9Adri6uhyMLI6LvPAXdBKoPRFhIIiBUpt+Qg2awixqO3xvzSijjhnb4+QEZwJmxA==}
+  /rollup/2.73.0:
+    resolution: {integrity: sha512-h/UngC3S4Zt28mB3g0+2YCMegT5yoftnQplwzPqGZcKvlld5e+kT/QRmJiL+qxGyZKOYpgirWGdLyEO1b0dpLQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -2003,7 +2022,7 @@ packages:
       esbuild: 0.14.39
       postcss: 8.4.13
       resolve: 1.22.0
-      rollup: 2.72.1
+      rollup: 2.73.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true

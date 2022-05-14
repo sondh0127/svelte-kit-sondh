@@ -13,6 +13,9 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
+    "@iconify-json/ant-design": "^1.1.1",
+    "@iconify-json/carbon": "^1.1.4",
+    "@iconify-json/twemoji": "^1.1.4",
     "@playwright/test": "^1.21.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
@@ -30,8 +33,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
+    "@unocss/reset": "^0.33.4",
     "cookie": "^0.4.1"
   }
 }
