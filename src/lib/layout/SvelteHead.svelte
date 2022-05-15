@@ -3,6 +3,6 @@
 </script>
 
 <svelte:head>
-	<title>{title} | @sondh0127</title>
-	<meta name="description" content="Son Hong Do Portfolio - {title}" />
+  <title>{title} | @sondh0127</title>
+  <meta name="description" content="Son Hong Do Portfolio - {title}" />
 </svelte:head>

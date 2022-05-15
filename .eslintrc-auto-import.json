@@ -1,0 +1,18 @@
+{
+  "globals": {
+    "afterUpdate": true,
+    "beforeUpdate": true,
+    "createEventDispatcher": true,
+    "derived": true,
+    "get": true,
+    "getAllContexts": true,
+    "getContext": true,
+    "hasContext": true,
+    "onDestroy": true,
+    "onMount": true,
+    "readable": true,
+    "setContext": true,
+    "tick": true,
+    "writable": true
+  }
+}

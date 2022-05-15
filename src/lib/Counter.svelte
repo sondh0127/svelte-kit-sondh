@@ -18,7 +18,9 @@
     <div class="i-carbon:subtract" />
   </button>
 
-  <div class="w-80px h-60px overflow-hidden text-center relative border border-1px border-offset-1 border-gray-700">
+  <div
+    class="w-80px h-60px overflow-hidden text-center relative border border-1px border-offset-1 border-gray-700"
+  >
     <div
       class="absolute w-full h-full"
       style="transform: translate(0, {100 * offset}%)"
