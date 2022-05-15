@@ -1,3 +1,4 @@
+import { objectEntries } from "@antfu/utils";
 import { onMount } from "svelte";
 import { derived, writable } from "svelte/store";
 
@@ -38,17 +39,17 @@ export function breakpointObserver() {
       ),
       '2xl': window.matchMedia(`(min-width: ${breakpoints['2xl']}px)`),
     };
-    const matchers = Object.entries(match);
+    const matchers = objectEntries(match);
     const sizeByMedia = Object.fromEntries(
       matchers.map(([size, queryList]) => [queryList.media, size])
     );
 
     const size = matchers.find(([size, queryList]) => queryList.matches)![0];
-    store.set(size as BreakpointSize);
+    store.set(size);
 
     function handleChange({ matches, media }: MediaQueryListEvent) {
       const size = sizeByMedia[media];
-      if (matches) store.set(size as BreakpointSize);
+      if (matches) store.set(size);
     }
 
     matchers.forEach(([size, queryList]) =>

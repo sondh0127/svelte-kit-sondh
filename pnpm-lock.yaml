@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@antfu/utils': ^0.5.2
   '@iconify-json/ant-design': ^1.1.1
   '@iconify-json/carbon': ^1.1.4
   '@iconify-json/logos': ^1.1.5
@@ -24,6 +25,7 @@ specifiers:
   unocss: ^0.33.4
 
 dependencies:
+  '@antfu/utils': 0.5.2
   '@lukeed/uuid': 2.0.0
   '@unocss/reset': 0.33.4
   cookie: 0.4.2
@@ -59,7 +61,6 @@ packages:
 
   /@antfu/utils/0.5.2:
     resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
-    dev: true
 
   /@eslint/eslintrc/1.2.3:
     resolution: {integrity: sha512-uGo44hIwoLGNyduRpjdEpovcbMdd+Nv7amtmJxnKmI8xj6yd5LncmSwDa5NgX/41lIFJtkjD6YdVfgEzPfJ5UA==}
