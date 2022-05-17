@@ -12,6 +12,7 @@
     "onMount": true,
     "readable": true,
     "setContext": true,
+    "supabase": true,
     "tick": true,
     "writable": true
   }

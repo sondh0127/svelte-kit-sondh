@@ -29,6 +29,9 @@ const config = {
           imports: [
             'svelte',
             'svelte/store',
+            {
+							$lib: ['supabase']
+						}
           ],
         }),
       ],

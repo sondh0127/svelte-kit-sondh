@@ -36,6 +36,7 @@
   "dependencies": {
     "@antfu/utils": "^0.5.2",
     "@lukeed/uuid": "^2.0.0",
+    "@supabase/supabase-js": "^1.35.3",
     "@unocss/reset": "^0.33.4",
     "cookie": "^0.4.2",
     "unplugin-auto-import": "^0.7.1"

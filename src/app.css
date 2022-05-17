@@ -10,6 +10,19 @@
 	--accent-color: #ff3e00;
 }
 
+::-webkit-scrollbar {
+  @apply w-5px h-5px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-6px bg-primary/75;
+}
+
+::-webkit-scrollbar-track {
+  @apply rounded-6px bg-primary/30;
+}
+
+
 body {
   @apply min-h-100vh m-0 text-white;
   background: linear-gradient(360deg, #255878 0%, #15202B 98.36%);

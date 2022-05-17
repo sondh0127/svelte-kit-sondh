@@ -62,7 +62,6 @@ export function createConfig({ strict = true, dev = true } = {}) {
           mono: 'Fira Mono'
         },
       }),
-      // presetScrollbar({}),
 
     ],
     transformers: [

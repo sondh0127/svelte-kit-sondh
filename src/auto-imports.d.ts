@@ -13,6 +13,7 @@ declare global {
   const onMount: typeof import('svelte')['onMount']
   const readable: typeof import('svelte/store')['readable']
   const setContext: typeof import('svelte')['setContext']
+  const supabase: typeof import('$lib')['supabase']
   const tick: typeof import('svelte')['tick']
   const writable: typeof import('svelte/store')['writable']
 }

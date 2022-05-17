@@ -2,11 +2,12 @@
   import 'uno.css'
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
-  import Counter from '$lib/Counter.svelte'
+import Footer from '$lib/footer/Footer.svelte'
+
 </script>
 
 <div
-  class="flex flex-row gap-48px px-128px py-48px min-h-screen justify-between"
+  class="flex flex-row gap-48px px-128px py-48px h-screen overflow-hidden justify-between"
 >
   <Header />
 
@@ -32,7 +33,7 @@
         </h1>
 
         <div
-          class="i-twemoji:pushpin w-[30px] h-[30px] absolute right-0 top-0"
+          class="i-twemoji:pushpin w-[26px] h-[26px] absolute right-0 top-0"
         />
       </div>
     </div>
@@ -41,7 +42,7 @@
     </div>
   </main>
 
-  <footer class="hidden xl:block">
-    <Counter />
+  <footer class="hidden xl:flex flex-col gap-36px min-w-320px">
+    <Footer/>
   </footer>
 </div>
