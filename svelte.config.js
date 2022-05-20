@@ -30,11 +30,15 @@ const config = {
             'svelte',
             'svelte/store',
             {
-							$lib: ['supabase']
-						}
+              $lib: ['supabase']
+            }
           ],
         }),
       ],
+      server: {
+        port: 3210,
+        host: true,
+      }
       // resolve: {
       //   alias: {
       //     $components: fileURLToPath(new URL('./src/components', import.meta.url))

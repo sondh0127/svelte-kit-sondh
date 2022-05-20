@@ -2,14 +2,17 @@
   import 'uno.css'
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
-import Footer from '$lib/footer/Footer.svelte'
-
+  import Footer from '$lib/footer/Footer.svelte'
 </script>
 
 <div
   class="flex flex-row gap-48px px-128px py-48px h-screen overflow-hidden justify-between"
 >
-  <Header />
+  <header
+    class="flex flex-col gap-40px flex-shrink-0 "
+  >
+    <Header />
+  </header>
 
   <main class="flex-grow flex flex-col gap-16px">
     <div>
@@ -43,6 +46,6 @@ import Footer from '$lib/footer/Footer.svelte'
   </main>
 
   <footer class="hidden xl:flex flex-col gap-36px min-w-320px">
-    <Footer/>
+    <Footer />
   </footer>
 </div>
