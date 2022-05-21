@@ -14,7 +14,7 @@
       <div class="{group.icon} w-26px h-26px" />
       <p class="text-base font-bold text-primary">{group.title}</p>
     </div>
-    <p class="text-primary font-bold text-xs">{group.extra}</p>
+    <p class="text-primary font-bold text-sm">{group.extra}</p>
   </div>
 
   <slot />
