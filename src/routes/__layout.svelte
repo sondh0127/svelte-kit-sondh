@@ -8,12 +8,9 @@
 <div
   class="flex flex-row gap-48px px-128px py-48px h-screen overflow-hidden justify-between"
 >
-  <header
-    class="flex flex-col gap-40px flex-shrink-0 "
-  >
+  <header class="flex flex-col gap-40px flex-shrink-0 ">
     <Header />
   </header>
-
   <main class="flex-grow flex flex-col gap-16px">
     <div>
       <div class="flex justify-center">

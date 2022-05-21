@@ -11,18 +11,26 @@
 
 <script lang="ts">
   import SvelteHead from '$lib/layout/SvelteHead.svelte'
+  import RotatingText from '$lib/RotatingText.svelte'
 </script>
 
 <SvelteHead title="Home" />
 
 <div class="flex flex-col gap-64px">
   <section class="flex flex-col gap-8px">
-    <div class="wrapper">
-      <p class="text-white">Software Engineer</p>
-      <p class="text-white">Frontend Developer</p>
+    <div class="wrapper flex-between">
+      <p>
+        <RotatingText words={['Software Engineer', 'Frontend Enthusiast']} />
+      </p>
+      <p>
+        <RotatingText words={['Mid-Level Developer', '3+ Years Experience']} />
+      </p>
+      <div
+        class="i-carbon:information-filled absolute top-[-16px] right-[-16px] w-32px h-32px text-primary"
+      />
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper flex-between">
       <div class="flex items-center gap-8px">
         <div class="i-logos:react h-30px w-30px" />
         <p class="text-[#00D8FF]">React</p>
@@ -36,16 +44,7 @@
         <p class="text-[#FF3E00]">Svelte</p>
       </div>
     </div>
-
-    <div class="wrapper">
-      <p class="text-white">Middle Level</p>
-      <p class="text-white">3+ years experience</p>
-      <div
-        class="i-carbon:information-filled absolute top-[-16px] right-[-16px] w-32px h-32px text-primary"
-      />
-    </div>
-
-    <div class="wrapper">
+    <div class="wrapper flex-between">
       <div class="flex items-center gap-8px">
         <div class="i-logos:javascript h-30px w-30px" />
         <p class="text-[#F7DF1E]">Javascript</p>
@@ -57,7 +56,7 @@
       </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper flex-between">
       <div class="flex items-center gap-8px">
         <div class="i-twemoji:technologist-light-skin-tone h-30px w-30px" />
         <p class="text-white hover:underline hover:text-primary">
@@ -78,14 +77,14 @@
   </section>
 
   <section class="flex flex-col gap-24px">
-    <div class="wrapper max-w-560px !justify-center">
+    <div class="wrapper flex-between max-w-560px !justify-center">
       <a class="" sveltekit:prefetch href="/about">Who I am?</a>
     </div>
-    <div class="wrapper max-w-560px">
+    <div class="wrapper flex-between max-w-560px">
       <a href="/educations">My educations.</a>
       <a href="/works">Check my works!</a>
     </div>
-    <div class="wrapper max-w-560px !justify-center">
+    <div class="wrapper flex-between max-w-560px !justify-center">
       <a href="/projects">Project and Contributors</a>
     </div>
   </section>
@@ -93,7 +92,11 @@
 
 <style>
   .wrapper {
-    @apply flex items-center flex-wrap justify-between px-32px py-8px rounded-30px bg-primary/8 relative w-[min(100%,800px)] mx-auto;
+    @apply rounded-30px bg-primary/8 relative w-[min(100%,800px)] px-32px py-8px mx-auto;
+  }
+
+  .flex-between {
+    @apply flex items-center flex-wrap justify-between;
   }
 
   p {
