@@ -1,5 +1,6 @@
 <script lang="ts">
   import { supabase } from '$lib/supabase'
+  import FooterItem from './FooterItem.svelte'
 
   const footerGroups = [
     {
@@ -20,16 +21,19 @@
     },
   ]
 
-  async function getProjects() {
-    let { data, error } = await supabase.from('projects').select('*')
-    return data || []
+  async function getData() {
+    const prom1 = supabase.from('projects').select('*')
+    const prom2 = supabase.from('resources').select('*')
+    const prom3 = supabase.from('wishlist').select('*')
+    const res = await Promise.all([prom1, prom2, prom3])
+    return [res[0].data, res[1].data, res[2].data]
   }
 </script>
 
 <!-- <Counter /> -->
 <div class="flex items-center justify-between">
   <div class="flex items-center gap-8px">
-    <img alt="avatar-sondh" src="/sondh0127-sm.png" />
+    <img alt="avatar-sondh" class="w-50px h-50px" src="/sondh0127-sm.png" />
     <div>
       <p class="font-bold text-sm">Son Hong Do</p>
       <p class="font-bold text-sm text-primary">@sondh0127</p>
@@ -41,32 +45,27 @@
     </button>
   </div>
 </div>
-<div class="overflow-auto">
-  {#each footerGroups as item, i (i)}
-    <div class="p-26px bg-primary/4 rounded-26px flex flex-col gap-4px">
-      <div class="flex items-center justify-between">
-        <div class="flex items-end gap-16px">
-          <p class="text-base font-bold text-primary">{item.title}</p>
-          <div class="{item.icon} w-26px h-26px" />
-        </div>
-        <p class="text-primary font-bold text-xs">{item.extra}</p>
-      </div>
-
-      <div class="flex flex-col">
-        {#await getProjects()}
-          <!-- promise is pending -->
-          <div>Loading...</div>
-        {:then projects}
-          {#each projects as item, i (i)}
+<div class="overflow-auto gap-36px flex flex-col">
+  {#await getData()}
+    {#each footerGroups as group, i (i)}
+      <FooterItem {group}>
+        <div class="flex flex-col min-h-[calc(28px+8px)]" />
+      </FooterItem>
+    {/each}
+  {:then data}
+    {#each footerGroups as group, i (i)}
+      <FooterItem {group}>
+        <div class="flex flex-col min-h-[calc(28px+8px)]">
+          {#each data[i] || [] as item, j (j)}
             <div
-              class="my-4px py-4px flex justify-between items-center hover:bg-primary/30 cursor-pointer px-4px rounded-lg"
+              class="my-4px py-4px flex justify-between items-center hover:bg-primary/30 cursor-pointer px-8px rounded-lg"
             >
               <p class="text-sm font-semibold">{item.name}</p>
               <p class="text-xs font-medium">05/2022</p>
             </div>
           {/each}
-        {/await}
-      </div>
-    </div>
-  {/each}
+        </div>
+      </FooterItem>
+    {/each}
+  {/await}
 </div>

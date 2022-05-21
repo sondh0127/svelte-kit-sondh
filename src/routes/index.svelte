@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-  import { browser, dev } from '$app/env'
+  // import { browser, dev } from '$app/env'
 
-  export const prerender = true
-  // we don't need any JS on this page, though we'll load
-  // it in dev so that we get hot module replacement...
-  export const hydrate = true
-  // ...but if the client-side router is already loaded
-  export const router = browser
+  // export const prerender = true
+  // // we don't need any JS on this page, though we'll load
+  // // it in dev so that we get hot module replacement...
+  // export const hydrate = true
+  // // ...but if the client-side router is already loaded
+  // export const router = browser
 </script>
 
 <script lang="ts">
@@ -69,7 +69,7 @@
 
       <div class="flex items-center gap-8px">
         <p>
-          <span class="text-[#FFE62E]"> Hanoi, </span>&nbsp
+          <span class="text-[#FFE62E]"> Hanoi, </span>
           <span class="text-[#F42F4C]"> VietNam </span>
         </p>
         <div class="i-twemoji:flag-vietnam h-30px w-30px" />
@@ -82,11 +82,11 @@
       <a class="" sveltekit:prefetch href="/about">Who I am?</a>
     </div>
     <div class="wrapper max-w-560px">
-      <a sveltekit:prefetch href="/educations">My educations.</a>
-      <a sveltekit:prefetch href="/works">Check my works!</a>
+      <a href="/educations">My educations.</a>
+      <a href="/works">Check my works!</a>
     </div>
     <div class="wrapper max-w-560px !justify-center">
-      <a sveltekit:prefetch href="/projects">Project and Contributors</a>
+      <a href="/projects">Project and Contributors</a>
     </div>
   </section>
 </div>

@@ -36,7 +36,7 @@ const config = {
         }),
       ],
       server: {
-        port: 3210,
+        port: 7210,
         host: true,
       }
       // resolve: {
