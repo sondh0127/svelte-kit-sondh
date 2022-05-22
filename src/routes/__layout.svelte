@@ -1,9 +1,17 @@
+<script context="module" lang="ts">
+  /** @type {import('@sveltejs/kit').Load} */
+  export const load = async ({ url }) => ({ props: { url } })
+</script>
+
 <script lang="ts">
   import 'uno.css'
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
   import Footer from '$lib/footer/Footer.svelte'
   import RotatingText from '$lib/RotatingText.svelte'
+  import PageTransition from '$lib/layout/PageTransition.svelte'
+
+  export let url: string
 </script>
 
 <div
@@ -52,9 +60,11 @@
         />
       </div>
     </div>
-    <div class="p-16px">
-      <slot />
-    </div>
+    <PageTransition {url}>
+      <div class="p-16px">
+        <slot />
+      </div>
+    </PageTransition>
   </main>
 
   <footer class="hidden xl:flex flex-col gap-36px min-w-320px">
