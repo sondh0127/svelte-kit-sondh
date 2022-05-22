@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<!-- <script context="module" lang="ts">
   // import { browser, dev } from '$app/env'
 
   // export const prerender = true
@@ -7,8 +7,7 @@
   // export const hydrate = true
   // // ...but if the client-side router is already loaded
   // export const router = browser
-</script>
-
+</script> -->
 <script lang="ts">
   import SvelteHead from '$lib/layout/SvelteHead.svelte'
   import RotatingText from '$lib/RotatingText.svelte'
@@ -20,10 +19,30 @@
   <section class="flex flex-col gap-8px">
     <div class="wrapper flex-between">
       <p>
-        <RotatingText words={['Software Engineer', 'Frontend Enthusiast']} />
+        <RotatingText length={2} let:i>
+          {#each ['Software Engineer', 'Frontend Enthusiast'][i] as item, j (j)}
+            <span>
+              {#if item === ' '}
+                &nbsp;
+              {:else}
+                {item}
+              {/if}
+            </span>
+          {/each}
+        </RotatingText>
       </p>
       <p>
-        <RotatingText words={['Mid-Level Developer', '3+ Years Experience']} />
+        <RotatingText length={2} let:i>
+          {#each ['Mid-Level Developer', '3+ Years Experience'][i] as item, j (j)}
+            <span>
+              {#if item === ' '}
+                &nbsp;
+              {:else}
+                {item}
+              {/if}
+            </span>
+          {/each}
+        </RotatingText>
       </p>
       <div
         class="i-carbon:information-filled absolute top-[-16px] right-[-16px] w-32px h-32px text-primary"
@@ -31,29 +50,45 @@
     </div>
 
     <div class="wrapper flex-between">
-      <div class="flex items-center gap-8px">
-        <div class="i-logos:react h-30px w-30px" />
-        <p class="text-[#00D8FF]">React</p>
-      </div>
-      <div class="flex items-center gap-8px">
-        <div class="i-logos:vue h-30px w-30px" />
-        <p class="text-[#41B883]">Vue</p>
-      </div>
-      <div class="flex items-center gap-8px">
-        <div class="i-logos:svelte-icon h-30px w-30px" />
-        <p class="text-[#FF3E00]">Svelte</p>
-      </div>
-    </div>
-    <div class="wrapper flex-between">
-      <div class="flex items-center gap-8px">
-        <div class="i-logos:javascript h-30px w-30px" />
-        <p class="text-[#F7DF1E]">Javascript</p>
-      </div>
+      <p>
+        <RotatingText length={3} let:i duration={3000}>
+          {#if i === 0}
+            {#each 'React' as c}
+              <span class="text-[#00D8FF]">{c}</span>
+            {/each}
+            <span class="i-logos:react h-26px w-26px ml-6px" />
+          {/if}
+          {#if i === 1}
+            {#each 'Vue' as c}
+              <span class="text-[#41B883]">{c}</span>
+            {/each}
+            <span class="i-logos:vue h-26px w-26px ml-6px" />
+          {/if}
+          {#if i === 2}
+            {#each 'Svelte' as c}
+              <span class="text-[#FF3E00]">{c}</span>
+            {/each}
+            <span class="i-logos:svelte-icon h-26px w-26px ml-6px" />
+          {/if}
+        </RotatingText>
+      </p>
 
-      <div class="flex items-center gap-8px">
-        <div class="i-logos:typescript-icon h-30px w-30px" />
-        <p class="text-[#007ACC]">Typescript</p>
-      </div>
+      <p>
+        <RotatingText length={2} let:i duration={3000}>
+          {#if i === 0}
+            {#each 'Javascript' as c}
+              <span class="text-[#F7DF1E]">{c}</span>
+            {/each}
+            <span class="i-logos:javascript h-26px w-26px ml-6px" />
+          {/if}
+          {#if i === 1}
+            {#each 'Typescript' as c}
+              <span class="text-[#007ACC]">{c}</span>
+            {/each}
+            <span class="i-logos:typescript-icon h-26px w-26px ml-6px" />
+          {/if}
+        </RotatingText>
+      </p>
     </div>
 
     <div class="wrapper flex-between">
@@ -76,9 +111,9 @@
     </div>
   </section>
 
-  <section class="flex flex-col gap-24px">
+  <section class="flex flex-col gap-24px text-2xl">
     <div class="wrapper flex-between max-w-560px !justify-center">
-      <a class="" sveltekit:prefetch href="/about">Who I am?</a>
+      <a class="" href="/about">Who I am?</a>
     </div>
     <div class="wrapper flex-between max-w-560px">
       <a href="/educations">My educations.</a>
@@ -104,6 +139,6 @@
   }
 
   a {
-    @apply hover-underline hover-text-primary text-2xl font-bold;
+    @apply hover-underline hover-text-primary font-bold;
   }
 </style>

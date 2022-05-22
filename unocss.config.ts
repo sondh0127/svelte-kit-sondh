@@ -10,6 +10,10 @@ export function createConfig({ strict = true, dev = true } = {}) {
     theme: {
       colors: {
         'primary': 'hsl(var(--primary-color))',
+        's-orange': 'hsl(var(--s-orange))',
+        's-green': 'hsl(var(--s-green))',
+        's-yellow': 'hsl(var(--s-yellow))',
+        's-blue': 'hsl(var(--s-blue))',
         // 'primary-hover': 'var(--primary-color-hover)',
         // 'primary-pressed': 'var(--primary-color-pressed)',
         // 'primary-active': 'var(--primary-color-active)',

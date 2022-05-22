@@ -1,59 +1,53 @@
 <script lang="ts">
-  import { sleep } from '@antfu/utils'
+  import { rotatingTextIn, rotatingTextOut } from './actions/rotatingText'
 
-  import { rotatingText } from './actions/rotatingText'
-  export let words = [
-    'awesome',
-    'beautiful',
-    'creative',
-    'fabulous',
-    'interesting',
-  ]
-  export let classNames = [
-    'text-[#e74c3c]',
-    'text-[#8e44ad]',
-    'text-[#3498db]',
-    'text-[#2ecc71]',
-    'text-[#f1c40f]',
-  ]
+  export let length = 2
+
+  export let duration = 4000
   let currentWordIndex = -1
-  let maxWordIndex = words.length - 1
+  let maxWordIndex = length - 1
 
-  async function rotateText() {
-    await tick()
+  function rotateText() {
     currentWordIndex =
       currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1
   }
 
   onMount(() => {
     rotateText()
+
+    setInterval(() => {
+      rotateText()
+    }, duration)
   })
+
+  let clientWidth = 0
 </script>
 
 <div class="relative">
-  {#each words as w, i (i)}
-    <span class="opacity-0">{i === currentWordIndex ? w : ''}</span>
+  <div class="opacity-0" style="width: {clientWidth}px;">&nbsp;</div>
+  {#each Array(length) as _, i (i)}
     {#if i === currentWordIndex}
-      <span class="absolute top-0 left-0 flex {classNames[i]}">
-        {#each w as item, j (j)}
-          <span
-            on:introend={async () => {
-              if (j === w.length - 1) {
-                await sleep(1500)
-                rotateText()
-              }
-            }}
-            in:rotatingText={{ delay: j * 100 }}
-            out:rotatingText={{ delay: j * 100, direction: 1 }}
-          >
-            {#if item === ' '}
-              &nbsp;
-            {:else}
-              {item}
-            {/if}
-          </span>
-        {/each}
-      </span>
+      <div
+        bind:clientWidth
+        in:rotatingTextIn|local
+        out:rotatingTextOut|local
+        class="flex top-0 left-0 absolute"
+      >
+        <slot {i} />
+      </div>
     {/if}
   {/each}
 </div>
+
+<style global>
+  .letter.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+  }
+  .letter.in {
+    transition: 0.38s ease;
+  }
+  .letter.behind {
+    transform: rotateX(-90deg);
+  }
+</style>

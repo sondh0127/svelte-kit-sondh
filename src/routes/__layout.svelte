@@ -3,6 +3,7 @@
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
   import Footer from '$lib/footer/Footer.svelte'
+  import RotatingText from '$lib/RotatingText.svelte'
 </script>
 
 <div
@@ -26,10 +27,24 @@
       <div
         class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px"
       >
-        <h1
-          class="bg-clip-text text-transparent text-6xl font-bold bg-gradient-to-br from-primary/70 via-primary to-white"
-        >
-          Son Portfolio
+        <h1 class="text-6xl font-bold">
+          <RotatingText length={2} let:i duration={3000}>
+            {@const word = ['Son Hong Do', 'Son Portfolio'][i]}
+            {#each word as item, j (j)}
+              <span
+                class={[
+                  'bg-clip-text text-transparent bg-gradient-to-br from-primary/70 via-primary to-white',
+                  'bg-clip-text text-transparent bg-gradient-to-br from-yellow/70 via-yellow to-white',
+                ][i]}
+              >
+                {#if item === ' '}
+                  &nbsp;
+                {:else}
+                  {item}
+                {/if}
+              </span>
+            {/each}
+          </RotatingText>
         </h1>
 
         <div

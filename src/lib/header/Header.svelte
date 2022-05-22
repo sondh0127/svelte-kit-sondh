@@ -2,6 +2,7 @@
   import NavMenu from './NavMenu.svelte'
   import logo from './svrj-logo.png'
   import { breakpointObserver } from '$lib/Breakpoint/breakpointObserver'
+  import StreamingButton from './StreamingButton.svelte'
 
   function getInTouch() {
     window.open('mailto:sondh0127@gmail.com', '_blank')
@@ -38,15 +39,14 @@
 
   <nav class="flex flex-col gap-40px">
     <NavMenu mini={$size === 'md'} />
-    <button
-      on:click={getInTouch}
-      class="w-full bg-primary hover:bg-primary/85 flex items-center justify-center rounded-30px py-12px px-24px"
-    >
-      {#if $size === 'md'}
-        <div class="i-carbon-carbon w-[24px] h-[24px] text-white" />
-      {:else}
-        <span class="text-white text-base font-bold"> Get In Touch </span>
-      {/if}
-    </button>
+    <div class="relative" on:click={getInTouch}>
+      <StreamingButton>
+        {#if $size === 'md'}
+          <div class="i-carbon-carbon w-[24px] h-[24px] text-white" />
+        {:else}
+          <span class="text-white text-base font-bold"> Get In Touch </span>
+        {/if}
+      </StreamingButton>
+    </div>
   </nav>
 {/if}
