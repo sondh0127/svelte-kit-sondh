@@ -8,8 +8,10 @@
   let maxWordIndex = length - 1
 
   function rotateText() {
-    currentWordIndex =
-      currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1
+    tick().then(() => {
+      currentWordIndex =
+        currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1
+    })
   }
   const focused = windowFocus()
 
