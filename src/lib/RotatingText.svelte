@@ -1,6 +1,6 @@
 <script lang="ts">
   import { rotatingTextIn, rotatingTextOut } from './actions/rotatingText'
-
+  import { windowFocus } from '$lib/stores'
   export let length = 2
 
   export let duration = 4000
@@ -11,12 +11,15 @@
     currentWordIndex =
       currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1
   }
+  const focused = windowFocus()
 
   onMount(() => {
     rotateText()
 
     setInterval(() => {
-      rotateText()
+      if ($focused) {
+        rotateText()
+      }
     }, duration)
   })
 
@@ -29,8 +32,8 @@
     {#if i === currentWordIndex}
       <div
         bind:clientWidth
-        in:rotatingTextIn|local
-        out:rotatingTextOut|local
+        in:rotatingTextIn={{ focused }}
+        out:rotatingTextOut|local={{ focused }}
         class="flex top-0 left-0 absolute"
       >
         <slot {i} />

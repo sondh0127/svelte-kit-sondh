@@ -38,6 +38,7 @@ const config = {
       server: {
         port: 7210,
         host: true,
+        open: true,
       }
       // resolve: {
       //   alias: {

@@ -18,7 +18,7 @@ export function rotatingText(
 }
 
 
-export function rotatingTextIn(node: Element, { speed = 1 }): TransitionConfig {
+export function rotatingTextIn(node: Element, { speed = 1, focused }): TransitionConfig {
   const children = node.children
   const h = node.clientHeight
 
@@ -38,13 +38,18 @@ export function rotatingTextIn(node: Element, { speed = 1 }): TransitionConfig {
       const i = Math.trunc(children.length * t)
       const child = children[i]
       if (child) {
-        child.classList.replace('behind', 'in')
+        if (get(focused)) {
+          child.classList.replace('behind', 'in')
+        } else {
+          child.classList.replace('behind', 'in')
+          child.classList.replace('out', 'in')
+        }
       }
     },
   }
 }
 
-export function rotatingTextOut(node: Element, { speed = 1 }): TransitionConfig {
+export function rotatingTextOut(node: Element, { speed = 1, focused }): TransitionConfig {
   const children = node.children
   const duration = children.length / (speed * 0.01)
 
@@ -54,7 +59,12 @@ export function rotatingTextOut(node: Element, { speed = 1 }): TransitionConfig 
       const i = Math.trunc(children.length * u)
       const child = children[i]
       if (child) {
-        child.classList.replace('in', 'out')
+        if (get(focused)) {
+          child.classList.replace('in', 'out')
+        } else {
+          child.classList.replace('behind', 'in')
+          child.classList.replace('out', 'in')
+        }
       }
     },
   }
