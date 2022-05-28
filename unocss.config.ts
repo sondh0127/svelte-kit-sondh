@@ -1,4 +1,7 @@
-import { defineConfig, presetAttributify, presetUno, presetIcons, presetWebFonts, transformerDirectives, transformerVariantGroup } from 'unocss'
+import {
+  defineConfig, presetAttributify, presetUno, presetIcons, presetWebFonts,
+  transformerDirectives, transformerVariantGroup
+} from 'unocss'
 // import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { extractorSvelte } from '@unocss/core'
 
@@ -42,6 +45,9 @@ export function createConfig({ strict = true, dev = true } = {}) {
     shortcuts: [
       ['scrollbar-default', 'scrollbar scrollbar-rounded scrollbar-w-7px scrollbar-radius-4 scrollbar-track-color-gray-100 scrollbar-thumb-color-gray-300 dark:scrollbar-thumb-color-gray-500 dark:scrollbar-track-color-gray-600'],
     ],
+    rules: [
+      ['bg-dark', { background: 'linear-gradient(360deg, #255878 0%, #15202B 98.36%)' }]
+    ],
     extractors: [extractorSvelte],
     presets: [
       presetUno(),
@@ -58,7 +64,7 @@ export function createConfig({ strict = true, dev = true } = {}) {
           'vertical-align': 'middle',
         },
       }),
-      // presetAttributify({ strict }),
+      presetAttributify({ strict }),
       presetWebFonts({
         provider: 'google',
         fonts: {

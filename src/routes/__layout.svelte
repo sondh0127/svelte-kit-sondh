@@ -12,26 +12,54 @@
   import PageTransition from '$lib/layout/PageTransition.svelte'
 
   export let url: string
+
+  let show = false
+
+  let footerDrawer = false
 </script>
 
 <div
-  class="flex flex-row gap-48px px-128px py-48px h-screen overflow-hidden justify-between"
+  class="flex flex-row lg:gap-24px xl:gap-48px h-screen overflow-hidden justify-between max-w-screen-2xl 2xl:mx-auto"
 >
-  <header class="flex flex-col gap-40px flex-shrink-0 ">
-    <Header />
-  </header>
-  <main class="flex-grow flex flex-col gap-16px">
+  <Header bind:show />
+  <main
+    class="flex-grow flex flex-col gap-16px 2xl:w-[calc(1536px-240px-320px-48px-48px)]"
+  >
     <div>
-      <div class="flex justify-center">
-        <picture>
-          <source srcset="svelte-welcome.webp" type="image/webp" />
+      <div class="flex justify-center px-16px py-12px">
+        <button
+          on:click={() => (show = !show)}
+          class="z-8 text-gray-900 flex-shrink-0"
+        >
           <img
-            class="h-100px object-fill"
-            src="svelte-welcome.png"
-            alt="Welcome"
+            class="w-36px h-36px object-contain"
+            md="hidden"
+            src="/svrj-logo.png"
+            alt="SvelteKit"
           />
-        </picture>
+        </button>
+        <div class="flex-1 flex justify-center">
+          <picture>
+            <!-- <source srcset="svelte-welcome.webp" type="image/webp" /> -->
+            <img
+              class="h-50px object-fill"
+              src="svelte-welcome.png"
+              alt="Welcome"
+            />
+          </picture>
+        </div>
+        <div class="w-36px">
+          <button
+            on:click={() => (footerDrawer = !footerDrawer)}
+            class="hover:bg-primary/30 rounded-full p-4px"
+            lg="hidden"
+          >
+            <div class="i-ant-design:setting-filled w-30px h-30px" />
+          </button>
+        </div>
       </div>
+
+      <!--  -->
       <div
         class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px"
       >
@@ -60,6 +88,7 @@
         />
       </div>
     </div>
+
     <PageTransition {url}>
       <div class="p-16px">
         <slot />
@@ -67,7 +96,5 @@
     </PageTransition>
   </main>
 
-  <footer class="hidden xl:flex flex-col gap-36px min-w-320px">
-    <Footer />
-  </footer>
+  <Footer bind:footerDrawer />
 </div>

@@ -37,7 +37,10 @@
   ]
 </script>
 
-<ul class="flex flex-col items-start py-10px gap-10px list-none m-0 p-0">
+<ul
+  class="flex flex-col items-start py-10px gap-10px list-none m-0 p-0"
+  class:items-center={mini}
+>
   {#each items as item, i (i)}
     {@const active = $page.url.pathname === item.path}
     <li class="py-8px">
