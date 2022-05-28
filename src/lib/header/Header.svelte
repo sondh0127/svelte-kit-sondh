@@ -28,8 +28,7 @@
     class:min-w-240px={!$mini}
   >
     <div
-      class="h-50px flex gap-8px items-center justify-start"
-      class:justify-center={$mini}
+      class="h-50px flex gap-16px items-center justify-center"
     >
       <a class="" href="#">
         <img
