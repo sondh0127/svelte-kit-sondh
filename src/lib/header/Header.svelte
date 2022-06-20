@@ -20,7 +20,6 @@
 </script>
 
 
-size: {$size}
 {#if display}
   <header
     transition:fly|local={{ x: -240 }}

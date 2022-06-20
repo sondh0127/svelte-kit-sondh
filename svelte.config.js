@@ -38,7 +38,6 @@ const config = {
       server: {
         port: 7210,
         host: true,
-        open: true,
       }
       // resolve: {
       //   alias: {
@@ -46,7 +45,12 @@ const config = {
       //   }
       // }
     },
-  }
+  },
+  experimental: {
+    inspector: {
+      showToggleButton: 'always'
+    }
+  },
 };
 
 export default config;
