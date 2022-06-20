@@ -7,7 +7,11 @@
 
   export let speed = 140
 
+  export let delay = 0.001
+
   export let marqueeWidth = 800
+
+  export let padding = 64 + 32
 
   export let duplicated = false
 
@@ -30,8 +34,8 @@
   }
 
   //max width of the marquee: 1640
-  let containerWidth
-  $: duration = loopCount > 1 ? 1640 / speed : (1640 + marqueeWidth) / speed
+  let containerWidth: number
+  $: duration = loopCount > 1 ? 1640 / speed : (1640 + containerWidth) / speed
 
   $: name = loopCount > 1 ? 'scroll' : 'scroll0'
 
@@ -44,26 +48,30 @@
 		--play: ${play ? 'running' : 'paused'};
 		--direction: ${direction === 'left' ? 'normal' : 'reverse'};
 		--duration: ${duration}s;
+		--delay: ${delay}s;
     --name: ${name};
-    --transform : translateX(${loopCount > 1 ? 0 : marqueeWidth / 16}em);
+    --transform : translateX(${loopCount > 1 ? 0 : containerWidth / 16}em);
     --iteration-count: ${loopCount > 1 || !duplicated ? 'infinite' : '1'};
 	`
 </script>
 
-<div class="marquee-container" style={_style} bind:clientWidth={containerWidth}>
-  <div class="marquee" bind:this={marqWrapEl} style={_marqueeStyle}>
-    <slot />
-  </div>
-  {#if duplicated}
-    <div class="marquee" style={_marqueeStyle}>
+<div style="max-width: calc(100vw - {padding}px);" bind:clientWidth={containerWidth}>
+  <div
+    class="marquee-container"
+    style={_style}
+    bind:clientWidth={containerWidth}
+  >
+    <div class="marquee" bind:this={marqWrapEl} style={_marqueeStyle}>
       <slot />
     </div>
-  {/if}
+    {#if duplicated}
+      <div class="marquee" style={_marqueeStyle}>
+        <slot />
+      </div>
+    {/if}
+  </div>
 </div>
 
-<!-- <div class="absolute top-0 left-0">
-  loopCount: {loopCount}
-</div> -->
 <style global>
   .marquee-container {
     display: flex;
@@ -88,7 +96,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    animation: var(--name) var(--duration) linear 0.001s var(--iteration-count);
+    animation: var(--name) var(--duration) linear var(--delay)
+      var(--iteration-count);
     animation-play-state: var(--play);
     animation-direction: normal;
     animation-direction: var(--direction);

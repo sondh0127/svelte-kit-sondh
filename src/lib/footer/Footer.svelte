@@ -48,7 +48,7 @@
 {#if display}
   <footer
     transition:fly|local={{ x: 360 }}
-    class="lg:flex py-12px flex-col gap-36px min-w-320px min-h-screen {footerDrawer
+    class="lg:flex py-12px px-16px flex-col gap-36px min-w-320px min-h-screen {footerDrawer
       ? 'fixed shadow-lg bg-dark z-10 right-0 '
       : ''}"
   >

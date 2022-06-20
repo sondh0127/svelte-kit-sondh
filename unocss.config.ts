@@ -2,7 +2,7 @@ import {
   defineConfig, presetAttributify, presetUno, presetIcons, presetWebFonts,
   transformerDirectives, transformerVariantGroup
 } from 'unocss'
-// import { presetScrollbar } from 'unocss-preset-scrollbar'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { extractorSvelte } from '@unocss/core'
 
 
@@ -43,7 +43,7 @@ export function createConfig({ strict = true, dev = true } = {}) {
 
     },
     shortcuts: [
-      ['scrollbar-default', 'scrollbar scrollbar-rounded scrollbar-w-7px scrollbar-radius-4 scrollbar-track-color-gray-100 scrollbar-thumb-color-gray-300 dark:scrollbar-thumb-color-gray-500 dark:scrollbar-track-color-gray-600'],
+      ['scrollbar-default', 'scrollbar scrollbar-rounded scrollbar-w-5px scrollbar-w-4px scrollbar-radius-6px scrollbar-track-color-primary/30 scrollbar-thumb-color-primary/75'],
     ],
     rules: [
       ['bg-dark', { background: 'linear-gradient(360deg, #255878 0%, #15202B 98.36%)' }]
@@ -72,7 +72,8 @@ export function createConfig({ strict = true, dev = true } = {}) {
           mono: 'Fira Mono'
         },
       }),
-
+      presetScrollbar({
+      }),
     ],
     transformers: [
       // transformerVariantGroup(),

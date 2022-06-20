@@ -8,8 +8,8 @@
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
   import Footer from '$lib/footer/Footer.svelte'
-  import RotatingText from '$lib/RotatingText.svelte'
   import PageTransition from '$lib/layout/PageTransition.svelte'
+  import MarqueeContainer from '$lib/components/MarqueeContainer.svelte'
 
   export let url: string
   const storeUrl = writable(url)
@@ -22,16 +22,17 @@
     show = false
     footerDrawer = false
   })
-
 </script>
 
 <div
-  class="flex flex-row lg:gap-24px xl:gap-48px h-screen overflow-hidden justify-between max-w-screen-2xl 2xl:mx-auto"
+  class="grid md:grid-cols-[0.5fr_2.5fr] lg:grid-cols-[0.3fr_1.9fr_0.8fr] xl:grid-cols-[0.5fr_1.8fr_0.7fr] min-h-screen mx-auto 2xl:w-screen-2xl"
+  sm="w-screen-sm"
+  md="w-screen-md"
+  lg="w-screen-lg"
+  xl="w-screen-xl"
 >
   <Header bind:show />
-  <main
-    class="flex-grow flex flex-col gap-16px 2xl:w-[calc(1536px-240px-320px-48px-48px)]"
-  >
+  <main class="flex-grow h-full flex flex-col gap-16px">
     <div>
       <div class="flex justify-between px-16px py-12px">
         <button
@@ -68,25 +69,12 @@
 
       <!--  -->
       <div
-        class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px"
+        class="flex justify-center relative bg-primary/8 rounded-30px px-16px py-8px mx-8px"
       >
-        <h1 class="text-5xl md:text-6xl font-bold">
-          <!-- <RotatingText length={2} let:i duration={3000}> -->
-          {#each ['Son Hong Do', 'Son Portfolio'] as item, j (j)}
-            <span
-              class={[
-                'bg-clip-text text-transparent bg-gradient-to-br from-primary/70 via-primary to-white',
-                'bg-clip-text text-transparent bg-gradient-to-br from-yellow/70 via-yellow to-white',
-              ][0]}
-            >
-              {#if item === ' '}
-                &nbsp;
-              {:else}
-                {item}
-              {/if}
-            </span>
-          {/each}
-          <!-- </RotatingText> -->
+        <h1
+          class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-primary/70 via-primary to-white"
+        >
+          Son Portfolio
         </h1>
 
         <div
@@ -95,10 +83,8 @@
       </div>
     </div>
 
-    <PageTransition storeUrl={storeUrl}>
-      <div class="p-16px">
-        <slot />
-      </div>
+    <PageTransition {storeUrl}>
+      <slot />
     </PageTransition>
   </main>
 

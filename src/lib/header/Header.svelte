@@ -16,9 +16,11 @@
   onMount(() => (isMounted = true))
   $: display = isMounted ? !$isDrawer || show : false
 
-  $: mini = derived(size, (_size) => _size === 'md' || _size === 'lg')
+  $: mini = size.smallerThan('xl')
 </script>
 
+
+size: {$size}
 {#if display}
   <header
     transition:fly|local={{ x: -240 }}

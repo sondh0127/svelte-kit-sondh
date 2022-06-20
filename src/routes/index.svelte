@@ -9,86 +9,65 @@
   // export const router = browser
 </script> -->
 <script lang="ts">
+  import MarqueeContainer from '$lib/components/MarqueeContainer.svelte'
+
   import SvelteHead from '$lib/layout/SvelteHead.svelte'
-  import RotatingText from '$lib/RotatingText.svelte'
 </script>
 
 <SvelteHead title="Home" />
 
 <div class="flex flex-col gap-64px">
-  <section class="flex flex-col gap-8px">
-    <div class="wrapper flex-between">
-      <p>
-        <!-- <RotatingText length={2} let:i> -->
-          {#each ['Software Engineer', 'Frontend Enthusiast'] as item, j (j)}
-            <span>
-              {#if item === ' '}
-                &nbsp;
-              {:else}
-                {item}
-              {/if}
-            </span>
-          {/each}
-        <!-- </RotatingText> -->
-      </p>
-      <p>
-        <!-- <RotatingText length={2} let:i> -->
-          {#each ['Mid-Level Developer', '3+ Years Experience'] as item, j (j)}
-            <span>
-              {#if item === ' '}
-                &nbsp;
-              {:else}
-                {item}
-              {/if}
-            </span>
-          {/each}
-        <!-- </RotatingText> -->
-      </p>
+  <section class="flex flex-col gap-8px items-start">
+    <div class="wrapper flex-between hidden">
+      <p class="px-20px font-mono">Software Engineer</p>
+      <p class="px-20px font-mono">Frontend Enthusiast</p>
       <div
         class="i-carbon:information-filled absolute top-[-16px] right-[-16px] w-32px h-32px text-primary"
       />
     </div>
+    <div class="wrapper flex-between">
+      <!-- <MarqueeContainer delay={2.5} duplicated={true} speed={200} marqueeWidth={100}> -->
+      <p class="px-20px font-mono">Mid-Level Developer</p>
+      <p class="px-20px font-mono">3+ Years Experience</p>
+      <!-- </MarqueeContainer> -->
+    </div>
 
     <div class="wrapper flex-between">
-      <p>
-        <!-- <RotatingText length={3} let:i duration={3000}> -->
-          <!-- {#if i === 0} -->
-            {#each 'React' as c}
-              <span class="text-[#00D8FF]">{c}</span>
-            {/each}
-            <span class="i-logos:react h-26px w-26px ml-6px" />
-          <!-- {/if} -->
-          <!-- {#if i === 1} -->
-            {#each 'Vue' as c}
-              <span class="text-[#41B883]">{c}</span>
-            {/each}
-            <span class="i-logos:vue h-26px w-26px ml-6px" />
-          <!-- {/if} -->
-          <!-- {#if i === 2} -->
-            {#each 'Svelte' as c}
-              <span class="text-[#FF3E00]">{c}</span>
-            {/each}
-            <span class="i-logos:svelte-icon h-26px w-26px ml-6px" />
-          <!-- {/if} -->
-        <!-- </RotatingText> -->
-      </p>
+      <!-- <MarqueeContainer duplicated={true} speed={200}>
+        <div>
+          <p class="mr-32px">
+            <span class="text-[#00D8FF]">React</span>
+            <span class="i-logos:react h-20px w-20px ml-2px v-baseline" />
+          </p>
+        </div>
+        <div>
+          <p class="mr-32px">
+            <span class="text-[#41B883]">Vue</span>
+            <span class="i-logos:vue h-20px w-20px ml-2px v-baseline" />
+          </p>
+        </div>
+        <div>
+          <p class="mr-32px">
+            <span class="text-[#FF3E00]">Svelte</span>
+            <span class="i-logos:svelte-icon h-20px w-20px ml-2px v-baseline" />
+          </p>
+        </div>
 
-      <p>
-        <!-- <RotatingText length={2} let:i duration={3000}> -->
-          <!-- {#if i === 0} -->
-            {#each 'Javascript' as c}
-              <span class="text-[#F7DF1E]">{c}</span>
-            {/each}
-            <span class="i-logos:javascript h-26px w-26px ml-6px" />
-          <!-- {/if} -->
-          <!-- {#if i === 1} -->
-            {#each 'Typescript' as c}
-              <span class="text-[#007ACC]">{c}</span>
-            {/each}
-            <span class="i-logos:typescript-icon h-26px w-26px ml-6px" />
-          <!-- {/if} -->
-        <!-- </RotatingText> -->
-      </p>
+        <div>
+          <p class="mr-32px">
+            <span class="text-[#F7DF1E]">Javascript</span>
+            <span class="i-logos:javascript h-20px w-20px ml-2px v-baseline" />
+          </p>
+        </div>
+        <div>
+          <p class="mr-32px">
+            <span class="text-[#007ACC]">Typescript</span>
+            <span
+              class="i-logos:typescript-icon h-20px w-20px ml-2px v-baseline"
+            />
+          </p>
+        </div>
+      </MarqueeContainer> -->
     </div>
 
     <div class="wrapper flex-between">

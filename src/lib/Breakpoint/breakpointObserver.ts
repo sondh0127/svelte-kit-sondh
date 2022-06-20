@@ -27,19 +27,13 @@ export function breakpointObserver() {
 
   onMount(() => {
     const match: Record<BreakpointSize, MediaQueryList> = {
-      sm: window.matchMedia(`(max-width: ${breakpoints.md}px)`),
-      md: window.matchMedia(
-        `(min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg}px)`
-      ),
-      lg: window.matchMedia(
-        `(min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl}px)`
-      ),
-      xl: window.matchMedia(
-        `(min-width: ${breakpoints.xl}px) and (max-width: ${breakpoints['2xl']}px)`
-      ),
+      sm: window.matchMedia(`(min-width: ${breakpoints.sm}px)`),
+      md: window.matchMedia(`(min-width: ${breakpoints.md}px)`),
+      lg: window.matchMedia(`(min-width: ${breakpoints.lg}px)`),
+      xl: window.matchMedia(`(min-width: ${breakpoints.xl}px)`),
       '2xl': window.matchMedia(`(min-width: ${breakpoints['2xl']}px)`),
     };
-    const matchers = objectEntries(match);
+    const matchers = objectEntries(match).reverse();
     const sizeByMedia = Object.fromEntries(
       matchers.map(([size, queryList]) => [queryList.media, size])
     );
