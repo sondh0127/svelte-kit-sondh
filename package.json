@@ -37,6 +37,7 @@
   "dependencies": {
     "@antfu/utils": "^0.5.2",
     "@lukeed/uuid": "^2.0.0",
+    "@notionhq/client": "^1.0.4",
     "@supabase/supabase-js": "^1.35.3",
     "@unocss/reset": "^0.39.3",
     "cookie": "^0.4.2",

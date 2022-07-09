@@ -32,7 +32,7 @@
   xl="w-screen-xl"
 >
   <Header bind:show />
-  <main class="flex-grow h-full flex flex-col gap-16px">
+  <main class="flex-grow h-full w-full flex flex-col gap-16px">
     <div>
       <div class="flex justify-between px-16px py-12px">
         <button
