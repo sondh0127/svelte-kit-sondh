@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-  import 'uno.css'
+  // import 'uno.css'
   import '../app.css'
   import Header from '$lib/header/Header.svelte'
   import Footer from '$lib/footer/Footer.svelte'

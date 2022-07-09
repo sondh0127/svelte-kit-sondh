@@ -52,7 +52,6 @@ export function createConfig({ strict = true, dev = true } = {}) {
     presets: [
       presetUno(),
       presetIcons({
-
         collections: {
           carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default as any),
           'ant-design': () => import('@iconify-json/ant-design/icons.json').then(i => i.default as any),

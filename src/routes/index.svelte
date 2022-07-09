@@ -33,41 +33,41 @@
     </div>
 
     <div class="wrapper flex-between">
-      <!-- <MarqueeContainer duplicated={true} speed={200}>
-        <div>
-          <p class="mr-32px">
-            <span class="text-[#00D8FF]">React</span>
-            <span class="i-logos:react h-20px w-20px ml-2px v-baseline" />
-          </p>
-        </div>
-        <div>
-          <p class="mr-32px">
-            <span class="text-[#41B883]">Vue</span>
-            <span class="i-logos:vue h-20px w-20px ml-2px v-baseline" />
-          </p>
-        </div>
-        <div>
-          <p class="mr-32px">
-            <span class="text-[#FF3E00]">Svelte</span>
-            <span class="i-logos:svelte-icon h-20px w-20px ml-2px v-baseline" />
-          </p>
-        </div>
+      <!-- <MarqueeContainer duplicated={true} speed={200}> -->
+      <div>
+        <p class="mr-32px">
+          <span class="text-[#00D8FF]">React</span>
+          <span class="i-logos:react h-20px w-20px ml-2px v-baseline" />
+        </p>
+      </div>
+      <div>
+        <p class="mr-32px">
+          <span class="text-[#41B883]">Vue</span>
+          <span class="i-logos:vue h-20px w-20px ml-2px v-baseline" />
+        </p>
+      </div>
+      <div>
+        <p class="mr-32px">
+          <span class="text-[#FF3E00]">Svelte</span>
+          <span class="i-logos:svelte-icon h-20px w-20px ml-2px v-baseline" />
+        </p>
+      </div>
 
-        <div>
-          <p class="mr-32px">
-            <span class="text-[#F7DF1E]">Javascript</span>
-            <span class="i-logos:javascript h-20px w-20px ml-2px v-baseline" />
-          </p>
-        </div>
-        <div>
-          <p class="mr-32px">
-            <span class="text-[#007ACC]">Typescript</span>
-            <span
-              class="i-logos:typescript-icon h-20px w-20px ml-2px v-baseline"
-            />
-          </p>
-        </div>
-      </MarqueeContainer> -->
+      <div>
+        <p class="mr-32px">
+          <span class="text-[#F7DF1E]">Javascript</span>
+          <span class="i-logos:javascript h-20px w-20px ml-2px v-baseline" />
+        </p>
+      </div>
+      <div>
+        <p class="mr-32px">
+          <span class="text-[#007ACC]">Typescript</span>
+          <span
+            class="i-logos:typescript-icon h-20px w-20px ml-2px v-baseline"
+          />
+        </p>
+      </div>
+      <!-- </MarqueeContainer> -->
     </div>
 
     <div class="wrapper flex-between">
